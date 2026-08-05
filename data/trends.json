@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 2,
+  "skillSyncedAt": "2026-08-05T03:29:49.615Z",
+  "updatedAt": "2026-08-05",
+  "window": "2026-08-05 已同步李老师热点推送",
+  "sourceDailyPush": "2026-08-05-李老师热点推送.md",
+  "qualityPolicy": {
+    "sourceGate": "正式推送必须是可打开的原始笔记或视频",
+    "heatGate": "小红书优先至少1000可见互动；抖音优先至少1万可见互动或高速增长",
+    "commentGate": "评论洞察只来自可见评论",
+    "contentGate": "每条必须能转化为李老师的判断和可执行动作"
+  },
+  "brief": {
+    "conclusion": [
+      "今天小红书的强信号集中在两件事：一是 i 人如何在职场沟通中既有分寸又不委屈自己，二是普通员工遭遇软孤立、抢功和隐性排挤时如何公开化自保。两条都对准李老师的核心受众，而且评论区已经把“突然打电话、只问在吗、方案被抄、被排除在饭局外”等真实痛点说得很具体。 今天建议优先拍“职场软孤立”，其次拍“i 人微信沟通”。抖音近 72 小时暂未核验到同时满足原链接、互动数据、评论痛点和账号定位的强稿，因此今天只推 2 条，不用旧稿凑数。"
+    ],
+    "selectionNote": "2条原稿已通过定位、热度、数据、评论和原稿链接校验。",
+    "platformDifferences": {
+      "xiaohongshu": "本轮2条小红书原稿通过强校验。",
+      "douyin": "本轮没有抖音原稿通过强校验，不用旧稿凑数。"
+    },
+    "rejected": [
+      "只有搜索页、原稿无法打开或缺少达标互动数据的内容不进入正式推送。"
+    ],
+    "risks": [
+      "今天两条主推均来自小红书；抖音近72小时没有通过全部证据门槛的候选，平台覆盖不完整但结论真实。",
+      "互动数据为抓取时页面可见值，后续会继续变化；两条原稿的分享数均未显示。",
+      "“软孤立”需区分一般关系疏远、工作排挤和劳动争议，口播中不要把单一经历泛化为法律定性。"
+    ]
+  },
+  "hotTopics": {
+    "xiaohongshu": [
+      {
+        "topic": "被职场软孤立，先把隐性排挤公开化",
+        "targetAudience": "职场小白、性格老实的普通员工、i 人、没背景且容易被小团体拿捏的人。",
+        "timeWindow": "1天前，最近24-48小时",
+        "evidence": "1.3万赞、7370收藏、281评论；分享数未显示。",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6a7031e6000000002403fcc2?xsec_token=ABJbTtvvvByw3nW_ilmcFI6IDDJ7CzbsQq6oK80K7hUkE=&xsec_source=pc_search"
+      },
+      {
+        "topic": "i 人职场沟通，不用硬装外向",
+        "targetAudience": "i 人、内向职场人、刚毕业的职场小白。",
+        "timeWindow": "2天前，最近72小时",
+        "evidence": "3.6万赞、1.7万收藏、307评论；分享数未显示。",
+        "sourceUrl": "https://www.xiaohongshu.com/explore/6a6f6f210000000033018008?xsec_token=ABkYsCw_NvyQSwQF6xLvsUWToOaSOLwew-l4cI4ePzjqA=&xsec_source=pc_feed"
+      }
+    ],
+    "douyin": []
+  },
+  "items": [
+    {
+      "id": "2026-08-05-01",
+      "rank": 1,
+      "kind": "self-protection",
+      "tag": "自保避坑",
+      "platform": "小红书",
+      "publishedAt": "1天前，最近24-48小时",
+      "confidence": "高",
+      "publishable": true,
+      "sourceValid": true,
+      "sourceType": "小红书原始内容",
+      "topPick": true,
+      "title": "被职场软孤立，先把隐性排挤公开化",
+      "originalTitle": "遭遇职场软孤立别内耗，用“黏针”三招，把隐性排挤变成公开对话，轻松破局。",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6a7031e6000000002403fcc2?xsec_token=ABJbTtvvvByw3nW_ilmcFI6IDDJ7CzbsQq6oK80K7hUkE=&xsec_source=pc_search",
+      "cover": {
+        "description": "深蓝讲解页，主文案“隐形的墙：职场中的‘软孤立’”，用方案被抄、信息隔离等职场案例展开。"
+      },
+      "author": "未显示",
+      "topicTags": [
+        "#职场孤立",
+        "#冷暴力",
+        "#职场生存",
+        "#职场破局",
+        "#职场自保"
+      ],
+      "visibleData": "1.3万赞、7370收藏、281评论；分享数未显示。",
+      "metrics": {
+        "likes": "1.3万",
+        "collects": "7370",
+        "comments": "281",
+        "shares": "未显示"
+      },
+      "commentInsights": [
+        "方案被抄后怎样回应才不会变成自证",
+        "公开拆穿只在其他同事相对中立时有效",
+        "被排除在午餐和小团体之外要不要硬融",
+        "如果主管和排挤者已经结盟，是否应该留证、转岗或离开。"
+      ],
+      "audience": "职场小白、性格老实的普通员工、i 人、没背景且容易被小团体拿捏的人。",
+      "scene": "同事绕开你同步信息、抄走方案、抢成果、饭局不叫你，却在出问题时把责任推给你。",
+      "relevance": "职场小白、性格老实的普通员工、i 人、没背景且容易被小团体拿捏的人。；同事绕开你同步信息、抄走方案、抢成果、饭局不叫你，却在出问题时把责任推给你。；当事人感到不舒服，却找不到一件能公开指出的“大事”，最后一边自我怀疑，一边失去工作话语权。",
+      "angle": "软孤立最怕的不是你不合群，而是信息、成果和责任都在暗处流动；普通人要做的不是硬融圈子，而是把工作过程公开化。",
+      "conclusion": "软孤立最怕的不是你不合群，而是信息、成果和责任都在暗处流动；普通人要做的不是硬融圈子，而是把工作过程公开化。",
+      "action": "",
+      "hook": "职场里最难受的，不是没人叫你吃饭，是有人一边排挤你，一边拿走你的成果。",
+      "whyNow": "小红书 / 1天前，最近24-48小时；1.3万赞、7370收藏、281评论；分享数未显示。",
+      "coverTitle": "职场被软孤立，别急着硬融",
+      "publishTitle": "老实人被同事软孤立，先做这3个公开动作",
+      "contentFramework": {
+        "hook": "职场里最难受的，不是没人叫你吃饭，是有人一边排挤你，一边拿走你的成果。",
+        "conflict": "先辨认三个信号：关键消息总绕开你、成果被模糊署名、出问题却第一个找你。",
+        "judgment": "软孤立最怕的不是你不合群，而是信息、成果和责任都在暗处流动；普通人要做的不是硬融圈子，而是把工作过程公开化。",
+        "body": [],
+        "closingAction": "",
+        "adaptationBoundary": "借“把隐性问题公开化”的机制，不照搬原稿的三个案例和“黏针”命名；不把所有同事疏远都定义为霸凌。若涉及劳动争议，只给通用留痕建议，并提醒必要时咨询专业人士。"
+      }
+    },
+    {
+      "id": "2026-08-05-02",
+      "rank": 2,
+      "kind": "newcomer",
+      "tag": "职场新人",
+      "platform": "小红书",
+      "publishedAt": "2天前，最近72小时",
+      "confidence": "高",
+      "publishable": true,
+      "sourceValid": true,
+      "sourceType": "小红书原始内容",
+      "topPick": false,
+      "title": "i 人职场沟通，不用硬装外向",
+      "originalTitle": "社会化程度很高的姐姐教我的社交tips",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6a6f6f210000000033018008?xsec_token=ABkYsCw_NvyQSwQF6xLvsUWToOaSOLwew-l4cI4ePzjqA=&xsec_source=pc_feed",
+      "cover": {
+        "description": "白底清单式封面，标题和前10条社交规则直接可见，配办公室人物插画。"
+      },
+      "author": "未显示",
+      "topicTags": [
+        "#社会化",
+        "#情绪价值",
+        "#社交"
+      ],
+      "visibleData": "3.6万赞、1.7万收藏、307评论；分享数未显示。",
+      "metrics": {
+        "likes": "3.6万",
+        "collects": "1.7万",
+        "comments": "307",
+        "shares": "未显示"
+      },
+      "commentInsights": [
+        "突然接到语音或电话会产生强烈焦虑",
+        "只发“在吗”却不说事情让人反感",
+        "礼貌是否会变成单方面委屈自己",
+        "怎样避免成为同事的“负面情绪垃圾桶”",
+        "还有人主动补充“工作做事留痕很重要”。"
+      ],
+      "audience": "i 人、内向职场人、刚毕业的职场小白。",
+      "scene": "微信联系领导同事、临时打电话、不熟同事来倾诉、需要拒绝低优先级沟通。",
+      "relevance": "i 人、内向职场人、刚毕业的职场小白。；微信联系领导同事、临时打电话、不熟同事来倾诉、需要拒绝低优先级沟通。；不是没有礼貌，而是不知道怎样开口既显得靠谱，又不让自己承担过多情绪和即时响应压力。",
+      "angle": "职场社会化不是逼 i 人变外向，而是降低对方的沟通成本，同时守住自己的时间和情绪边界。",
+      "conclusion": "职场社会化不是逼 i 人变外向，而是降低对方的沟通成本，同时守住自己的时间和情绪边界。",
+      "action": "",
+      "hook": "i 人上班最怕的，不是不会说话，是每次开口都怕自己没分寸。",
+      "whyNow": "小红书 / 2天前，最近72小时；3.6万赞、1.7万收藏、307评论；分享数未显示。",
+      "coverTitle": "i人职场社交，不用硬装外向",
+      "publishTitle": "职场小白照着做：微信沟通最显分寸的3个动作",
+      "contentFramework": {
+        "hook": "i 人上班最怕的，不是不会说话，是每次开口都怕自己没分寸。",
+        "conflict": "误区：只发“在吗”、突然打电话、别人一倾诉就立刻承担解决责任。",
+        "judgment": "职场社会化不是逼 i 人变外向，而是降低对方的沟通成本，同时守住自己的时间和情绪边界。",
+        "body": [],
+        "closingAction": "",
+        "adaptationBoundary": "借清单式表达和评论区高频痛点，只讲最贴近职场的3条；不照抄22条社交规则，也不把 i 人描述成需要被“改造”的人。"
+      }
+    }
+  ],
+  "appReviewCandidates": [],
+  "observations": []
+}
