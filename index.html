@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f1ea">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="wmq工作台">
+  <meta name="description" content="wmq的工作台——日常记录、健身训练、自媒体运营、记账、日记与备忘">
+  <title>wmq的工作台</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=20">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20">
+  <link rel="stylesheet" href="styles.css?v=20">
+  <link rel="stylesheet" href="drawer.css?v=20">
+  <link rel="stylesheet" href="review.css?v=20">
+  <link rel="stylesheet" href="modules.css?v=20">
+  <link rel="stylesheet" href="overview.css?v=20">
+  <link rel="stylesheet" href="readability.css?v=20">
+  <link rel="stylesheet" href="settings.css?v=20">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="M4 11.2 12 4l8 7.2v8.1a1.7 1.7 0 0 1-1.7 1.7H5.7A1.7 1.7 0 0 1 4 19.3Z"/><path d="M9.2 21v-6.2h5.6V21"/></symbol>
+    <symbol id="icon-list" viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="3"/><path d="m7.5 9 1.4 1.4 2.5-2.8M13.5 9h3M7.5 15l1.4 1.4 2.5-2.8M13.5 15h3"/></symbol>
+    <symbol id="icon-fitness" viewBox="0 0 24 24"><path d="M3.5 9v6M6.5 7v10M9 10.5h6M15 7v10M17.5 9v6M3.5 12h3M17.5 12h3"/></symbol>
+    <symbol id="icon-spark" viewBox="0 0 24 24"><path d="m12 3 1.5 5.2L19 10l-5.5 1.8L12 17l-1.5-5.2L5 10l5.5-1.8Z"/><path d="m19 16 .7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7Z"/></symbol>
+    <symbol id="icon-fire" viewBox="0 0 24 24"><path d="M13.2 2.8c.5 4-2.8 5.1-2 8.4 1.1-.7 1.8-1.8 2-3.1 3.2 2.1 5 4.7 4.8 7.5-.2 3.3-2.7 5.6-6 5.6s-6-2.4-6-5.7c0-2.5 1.4-4.5 3.5-6.4-.1 2 .6 3.1 1.3 3.7-.2-3.7 2.7-5.4 2.4-10Z"/></symbol>
+    <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M5 20V11M10 20V7M15 20v-5M20 20V4"/><path d="M3 20.5h19"/></symbol>
+    <symbol id="icon-wallet" viewBox="0 0 24 24"><path d="M4 6.5h14a2 2 0 0 1 2 2v10H6a2 2 0 0 1-2-2Z"/><path d="M4 7V5.8A1.8 1.8 0 0 1 5.8 4H17M15 11h6v4h-6a2 2 0 0 1 0-4Z"/><circle cx="16" cy="13" r=".7"/></symbol>
+    <symbol id="icon-notebook" viewBox="0 0 24 24"><rect x="5" y="3.5" width="15" height="17" rx="2.5"/><path d="M8 3.5v17M3 8h4M3 13h4M3 18h4"/><path d="M12 10.2c1-1.5 3.6-.8 3.6 1.1 0 1.6-1.7 2.6-3.6 4-1.9-1.4-3.6-2.4-3.6-4 0-1.9 2.6-2.6 3.6-1.1Z"/></symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M6 14v6"/><circle cx="14" cy="7" r="2"/><circle cx="6" cy="17" r="2"/></symbol>
+  </svg>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="menu-button" id="menuButton" aria-label="打开功能菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="welcome">
+        <p class="eyebrow" id="dateLabel">7月24日 · 星期五</p>
+        <h1><span id="greetingText">早上好</span>，wmq <span aria-hidden="true">☀</span></h1>
+      </div>
+      <button class="avatar" id="openSettings" aria-label="打开设置"><img src="icon-192.png" alt=""></button>
+    </header>
+
+    <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+    <aside class="side-drawer" id="sideDrawer" aria-label="功能导航" aria-hidden="true">
+      <div class="drawer-brand">
+        <div class="drawer-logo"><img src="icon-192.png" alt=""></div>
+        <div><h2>wmq的工作台</h2><p>把生活，过成自己的作品</p></div>
+        <button id="drawerClose" aria-label="关闭功能菜单">×</button>
+      </div>
+      <nav class="drawer-nav">
+        <p class="drawer-label">今天</p>
+        <button class="drawer-item is-active" data-side-page="overview" data-side-target="overviewDashboard">
+          <span class="drawer-icon icon-home"><svg><use href="#icon-home"></use></svg></span><span><b>总览</b><small>今天的进度与下一步</small></span><i>›</i>
+        </button>
+        <button class="drawer-item" data-side-page="today" data-side-target="dailyListDashboard">
+          <span class="drawer-icon icon-list"><svg><use href="#icon-list"></use></svg></span><span><b>日常 List</b><small>论文、餐食与训练记录</small></span><i>›</i>
+        </button>
+
+        <p class="drawer-label">个人成长</p>
+        <button class="drawer-item" data-side-page="fitness" data-side-target="fitnessDashboard">
+          <span class="drawer-icon icon-fitness"><svg><use href="#icon-fitness"></use></svg></span><span><b>健身训练</b><small>每周3次 · 阶段进阶</small></span><i>›</i>
+        </button>
+
+        <p class="drawer-label">内容创作</p>
+        <button class="drawer-item" data-side-page="inspiration" data-side-target="inspirationDashboard">
+          <span class="drawer-icon icon-spark"><svg><use href="#icon-spark"></use></svg></span><span><b>选题每日灵感</b><small>小红书与抖音热点</small></span><i>›</i>
+        </button>
+        <button class="drawer-item" data-side-page="viral" data-side-target="viralDashboard">
+          <span class="drawer-icon icon-fire"><svg><use href="#icon-fire"></use></svg></span><span><b>爆款视频拆解</b><small>高热内容与创作结构</small></span><i>›</i>
+        </button>
+        <button class="drawer-item" data-side-page="review" data-side-target="reviewDashboard">
+          <span class="drawer-icon icon-chart"><svg><use href="#icon-chart"></use></svg></span><span><b>数据复盘</b><small>自动诊断与下一条建议</small></span><i>›</i>
+        </button>
+
+        <p class="drawer-label">生活管理</p>
+        <button class="drawer-item" data-side-page="finance" data-side-target="financeOverview">
+          <span class="drawer-icon icon-wallet"><svg><use href="#icon-wallet"></use></svg></span><span><b>记账与资产</b><small>收支、预算与结余</small></span><i>›</i>
+        </button>
+        <button class="drawer-item" data-side-page="notes" data-side-target="journalSection">
+          <span class="drawer-icon icon-notebook"><svg><use href="#icon-notebook"></use></svg></span><span><b>日记与备忘</b><small>记录心情和灵感</small></span><i>›</i>
+        </button>
+        <p class="drawer-label">工作台</p>
+        <button class="drawer-item" data-side-page="settings" data-side-target="settingsDashboard">
+          <span class="drawer-icon icon-settings"><svg><use href="#icon-settings"></use></svg></span><span><b>设置</b><small>显示、提醒与数据备份</small></span><i>›</i>
+        </button>
+      </nav>
+      <div class="drawer-footer"><span class="status-dot"></span><div><b>状态 · 正在推进</b><small>数据保存在当前设备</small></div></div>
+    </aside>
+
+    <main>
+      <section class="page is-active" id="page-overview" data-page="overview">
+        <span class="scroll-anchor" id="overviewDashboard"></span>
+        <div class="overview-intro">
+          <p class="eyebrow">WORKBENCH OVERVIEW</p>
+          <h2>今天，从这里开始</h2>
+          <p id="overviewDate">7月24日 · 星期五</p>
+        </div>
+
+        <article class="overview-hero">
+          <div class="overview-hero-top"><span>今日进度</span><b id="overviewDone">0 / 3</b></div>
+          <h2 id="overviewHeadline">先完成一件最重要的事</h2>
+          <p>论文、餐食和训练，记录即完成。</p>
+          <div class="overview-progress"><i><b id="overviewProgressBar"></b></i><span id="overviewPercent">0%</span></div>
+        </article>
+
+        <div class="overview-section-head"><div><p class="section-index">DAILY</p><h2>日常 List</h2></div><button data-nav-target="today">进入记录 →</button></div>
+        <div class="overview-daily-grid">
+          <button data-nav-target="today"><span class="paper">论</span><b>论文</b><small id="overviewPaperState">待记录</small></button>
+          <button data-nav-target="today"><span class="meal">食</span><b>餐食</b><small id="overviewMealState">待记录</small></button>
+          <button data-nav-target="today"><span class="fitness">练</span><b>健身</b><small id="overviewFitnessState">待记录</small></button>
+        </div>
+
+        <div class="overview-section-head"><div><p class="section-index">FOCUS</p><h2>今天的重点</h2></div></div>
+        <div class="overview-focus-list">
+          <button class="overview-focus-card training" data-nav-target="fitness">
+            <span>训练</span><div><small>每周 3 次 · 今日路线</small><h3>全身基础与核心稳定</h3><p id="overviewFitnessProgress">训练清单 0 / 6</p></div><i>›</i>
+          </button>
+          <button class="overview-focus-card content" data-nav-target="inspiration">
+            <span>题</span><div><small>小红书 / 抖音平台热点</small><h3 id="overviewIdeaTitle">等待今日平台热点更新</h3><p id="overviewTrendStatus">平台热点 · 暂无已核验数据</p></div><i>›</i>
+          </button>
+          <button class="overview-focus-card review" data-nav-target="review">
+            <span>数</span><div><small>数据复盘 · 下一步</small><h3 id="overviewReviewTitle">录入数据后生成优化建议</h3><p>每次只测试一个变量</p></div><i>›</i>
+          </button>
+        </div>
+
+        <div class="overview-section-head"><div><p class="section-index">SHORTCUTS</p><h2>全部功能</h2></div></div>
+        <div class="overview-shortcuts">
+          <button data-nav-target="viral"><span class="shortcut-icon icon-fire"><svg><use href="#icon-fire"></use></svg></span><b>爆款拆解</b></button>
+          <button data-nav-target="finance"><span class="shortcut-icon icon-wallet"><svg><use href="#icon-wallet"></use></svg></span><b>记账资产</b></button>
+          <button data-nav-target="notes"><span class="shortcut-icon icon-notebook"><svg><use href="#icon-notebook"></use></svg></span><b>日记备忘</b></button>
+        </div>
+      </section>
+
+      <section class="page" id="page-today" data-page="today">
+        <span class="scroll-anchor" id="dailyListDashboard"></span>
+        <div class="page-intro module-intro">
+          <p class="eyebrow">DAILY LIST</p>
+          <h2>今天，留下记录</h2>
+          <p>不追求复杂统计，只让每一天都有迹可循。</p>
+        </div>
+
+        <article class="calendar-card">
+          <div class="calendar-head"><button id="calendarPrev" aria-label="上个月">‹</button><div><p id="calendarYear">2026</p><h3 id="calendarMonth">七月</h3></div><button id="calendarNext" aria-label="下个月">›</button></div>
+          <div class="calendar-week"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
+          <div class="calendar-grid" id="dailyCalendar"></div>
+          <div class="calendar-legend"><span><i class="paper-dot"></i>论文</span><span><i class="meal-dot"></i>餐食</span><span><i class="fitness-dot"></i>训练</span></div>
+        </article>
+
+        <div class="selected-day-head"><div><p class="section-index">SELECTED DAY</p><h2 id="selectedDayTitle">7月24日 · 星期五</h2></div><span id="dailyCompletion">0/3</span></div>
+
+        <article class="daily-record-card paper-record">
+          <div class="daily-record-title"><span>论</span><div><h3>论文</h3><p>只记录今天推进了什么</p></div><input type="checkbox" id="dailyPaperDone" aria-label="完成今天的论文记录"></div>
+          <textarea id="dailyPaperNote" rows="3" placeholder="例如：修改结果章节，重做图4图例……"></textarea>
+        </article>
+
+        <article class="daily-record-card meal-record">
+          <div class="daily-record-title"><span>食</span><div><h3>今天吃了什么</h3><p>简单写下来，不计算热量</p></div><input type="checkbox" id="dailyMealDone" aria-label="完成今天的餐食记录"></div>
+          <div class="meal-inputs"><label>早餐<input id="dailyBreakfast" placeholder="吃了什么"></label><label>午餐<input id="dailyLunch" placeholder="吃了什么"></label><label>晚餐<input id="dailyDinner" placeholder="吃了什么"></label></div>
+        </article>
+
+        <article class="daily-record-card fitness-record">
+          <div class="daily-record-title"><span>练</span><div><h3>健身记录</h3><p>每周3次 · 每次约60分钟</p></div><input type="checkbox" id="dailyFitnessDone" aria-label="完成今天的健身记录"></div>
+          <div class="fitness-log-row"><input id="dailyFitnessNote" placeholder="今天练了什么"><label><input id="dailyFitnessMinutes" type="number" min="0" max="240" placeholder="60"><span>分钟</span></label></div>
+          <button class="inline-module-link" data-nav-target="fitness">查看训练计划 →</button>
+        </article>
+
+        <div class="daily-record-actions"><button class="daily-save-button" id="saveDailyRecord">保存这一天</button><button class="daily-clear-button" id="clearDailyRecord" disabled>清除这一天</button></div>
+        <p class="daily-save-status" id="dailySaveStatus" aria-live="polite"></p>
+      </section>
+
+      <section class="page" id="page-fitness" data-page="fitness">
+        <span class="scroll-anchor" id="fitnessDashboard"></span>
+        <div class="page-intro module-intro">
+          <p class="eyebrow">TRAINING ROUTE</p>
+          <h2>健身训练</h2>
+          <p>减脂、塑形和力量同步推进，以无痛训练为前提。</p>
+        </div>
+
+        <article class="fitness-route-card">
+          <div class="route-head"><span>练</span><div><p>你的进阶路线</p><h2>基础适应与动作稳定</h2></div></div>
+          <p>每周3次、每次约60分钟。先建立稳定动作和训练习惯，再逐步提高负重。</p>
+          <div class="route-progress"><i><b style="width:25%"></b></i><span>1 / 4 阶段</span></div>
+          <div class="route-focus"><span>本阶段重点</span><b>核心稳定 · 手臂塑形 · 腰腹控制</b></div>
+        </article>
+
+        <article class="fitness-safety"><span>!</span><div><b>腰痛训练边界</b><p>动作保持在无痛范围，避免硬撑和高冲击跑步；疼痛持续或加重时先停止，并由医生或康复专业人士评估。</p></div></article>
+
+        <div class="section-heading compact-heading"><div><p class="section-index">TODAY</p><h2>训练 A · 全身基础</h2></div><span class="workout-time">约60 min</span></div>
+        <div class="workout-list" id="fitnessWorkoutList">
+          <label><input type="checkbox" data-workout="warmup"><span><b>自行车或椭圆机热身</b><small>轻强度 8 分钟，不跑步</small></span><em>08'</em></label>
+          <label><input type="checkbox" data-workout="pulldown"><span><b>高位下拉</b><small>肩胛下沉，腰背保持中立</small></span><em>3×12</em></label>
+          <label><input type="checkbox" data-workout="chest"><span><b>坐姿器械推胸</b><small>选择可以稳定控制的重量</small></span><em>3×12</em></label>
+          <label><input type="checkbox" data-workout="arms"><span><b>绳索弯举＋下压</b><small>手臂超级组，动作不要借力</small></span><em>3×12</em></label>
+          <label><input type="checkbox" data-workout="core"><span><b>Pallof 抗旋转</b><small>核心收紧，保持无痛范围</small></span><em>3×10</em></label>
+          <label><input type="checkbox" data-workout="stretch"><span><b>放松与呼吸</b><small>髋屈肌、胸椎与腹式呼吸</small></span><em>08'</em></label>
+        </div>
+        <p class="workout-progress-text" id="fitnessWorkoutProgress">今天完成 0 / 6</p>
+
+        <div class="section-heading compact-heading"><div><p class="section-index">HISTORY</p><h2>训练历史</h2></div><span class="history-count" id="fitnessHistoryCount">0 次</span></div>
+        <div class="record-history-list" id="fitnessHistoryList"></div>
+
+        <div class="section-heading compact-heading"><div><p class="section-index">STAGES</p><h2>四阶段路线</h2></div></div>
+        <div class="fitness-stage-list">
+          <article class="fitness-stage current"><div><span>01</span><b>基础适应</b><em>进行中</em></div><p>建立每周3练习惯，掌握器械轨迹、呼吸和核心稳定。</p><strong>达标：连续3周完成至少8次无痛训练</strong></article>
+          <article class="fitness-stage"><div><span>02</span><b>核心与体态</b><em>待解锁</em></div><p>加强背部、核心和髋部控制，改善久坐带来的体态问题。</p></article>
+          <article class="fitness-stage"><div><span>03</span><b>力量与塑形</b><em>待解锁</em></div><p>循序增加负重，重点强化手臂、背部和腰腹线条。</p></article>
+          <article class="fitness-stage"><div><span>04</span><b>综合代谢</b><em>待解锁</em></div><p>用低冲击循环训练兼顾减脂、力量和长期体能。</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-inspiration" data-page="inspiration">
+        <span class="scroll-anchor" id="inspirationDashboard"></span>
+        <div class="page-intro module-intro">
+          <p class="eyebrow">DAILY TOPICS</p>
+          <h2>选题每日灵感</h2>
+          <p>先同步小红书、抖音平台热点，再筛选值得讲的职场切口。</p>
+        </div>
+        <article class="platform-first-note"><b>平台热点是源</b><span>账号定位只用于判断相关性和生成改编建议</span></article>
+        <article class="content-source-card"><div><span class="live-dot" id="trendStatusDot"></span><b id="trendStatusTitle">正在同步平台热点</b><small id="trendStatusDetail">真实热点会显示平台、更新时间、热度依据、来源和对标链接</small></div><button id="refreshTrends">检查更新</button></article>
+        <article class="trend-brief-card" id="trendBrief" hidden>
+          <div class="trend-brief-head"><div><p class="section-index">TODAY'S VERDICT</p><h3>今日结论</h3></div><span id="trendBriefCounts">0 条入选</span></div>
+          <p class="trend-conclusion" id="trendConclusion"></p>
+          <div class="fit-gate-badges"><span>定位门 ✓</span><span>热度门 ✓</span><span>数据门 ✓</span><span>评论门 ✓</span><span>原稿门 ✓</span></div>
+          <p class="trend-selection-note" id="trendSelectionNote"></p>
+        </article>
+        <section class="hot-topic-radar" id="hotTopicRadar" hidden>
+          <div class="section-heading compact-heading"><div><p class="section-index">TOPICS & TAGS</p><h2>热点话题与标签</h2></div></div>
+          <div class="hot-topic-columns" id="hotTopicColumns"></div>
+        </section>
+        <div class="module-filters" id="trendFilters">
+          <button class="is-active" data-filter="all">全部入选</button><button data-filter="xhs">小红书</button><button data-filter="douyin">抖音</button><button data-filter="cross">跨平台</button><button data-filter="newcomer">新人试用期</button><button data-filter="self-protection">自保避坑</button><button data-filter="job-hunting">求职面试</button>
+        </div>
+        <article class="creation-library" id="creationLibrary">
+          <div class="creation-library-head"><div><p class="section-index">MY CREATION LIBRARY</p><h3>我的创作库</h3></div><span>已保存在本机</span></div>
+          <div class="creation-library-stats" aria-label="创作库分类">
+            <button type="button" class="creation-library-stat" data-library-target="ideas" aria-controls="creationLibraryGroups"><b id="ideaBankCount">0</b><span>待创作选题</span><em>点击查看 ›</em></button>
+            <button type="button" class="creation-library-stat" data-library-target="saved" aria-controls="creationLibraryGroups"><b id="savedInspirationCount">0</b><span>收藏灵感</span><em>点击查看 ›</em></button>
+          </div>
+          <p class="creation-library-recent" id="ideaBankRecent">还没有加入选题，点击下方“加入选题”即可留在这里。</p>
+          <details class="creation-library-history" id="creationLibraryHistory">
+            <summary>查看全部创作记录</summary>
+            <div class="creation-library-groups" id="creationLibraryGroups"></div>
+          </details>
+        </article>
+        <div class="inspiration-list" id="trendList"></div>
+        <section class="app-review-section" id="appReviewSection" hidden>
+          <div class="section-heading compact-heading"><div><p class="section-index">APP REVIEW</p><h2>小红书高互动候选</h2></div><span class="candidate-label">不进入推送</span></div>
+          <p class="candidate-intro">网页端看得到高互动卡片，但打不开原始笔记；需要在小红书 App 内复核后才能升级为正式热稿。</p>
+          <div class="app-review-list" id="appReviewList"></div>
+        </section>
+        <section class="trend-observation-section" id="trendObservationSection" hidden>
+          <details><summary>查看备选观察 <span id="trendObservationCount">0 条未推送</span></summary><ul id="trendObservationList"></ul></details>
+        </section>
+        <section class="trend-debrief" id="trendDebrief" hidden>
+          <div class="section-heading compact-heading"><div><p class="section-index">AFTER FILTERING</p><h2>平台差异与筛选说明</h2></div></div>
+          <div class="platform-difference-grid"><article><span>小红书</span><p id="xhsDifference"></p></article><article><span>抖音</span><p id="douyinDifference"></p></article></div>
+          <details><summary>查看淘汰说明</summary><ul id="trendRejectedList"></ul></details>
+          <details><summary>查看风险与数据缺口</summary><ul id="trendRiskList"></ul></details>
+        </section>
+      </section>
+
+      <section class="page" id="page-viral" data-page="viral">
+        <span class="scroll-anchor" id="viralDashboard"></span>
+        <div class="page-intro module-intro">
+          <p class="eyebrow">VIRAL LAB</p>
+          <h2>爆款视频拆解</h2>
+          <p>不照抄内容，只提取可以转化成你自己观点的方法。</p>
+        </div>
+        <div class="viral-mode-tabs" id="viralModeTabs"><button class="is-active" data-viral-mode="structure">爆款结构库</button><button data-viral-mode="rewrite">可二创方向</button></div>
+        <article class="viral-principle"><span>IP</span><div><b>李老师的改编原则</b><p>身份词圈人群，具体场景建代入，明确判断建立专业信任，最后给一个低阻力行动。</p></div></article>
+        <section class="live-viral-section" id="liveViralSection" hidden>
+          <div class="section-heading compact-heading"><div><p class="section-index">LIVE HOT POSTS</p><h2>今日热稿拆解</h2></div><span class="source-valid-label">原稿已核验</span></div>
+          <div class="live-viral-list" id="liveViralList"></div>
+        </section>
+        <div class="module-filters compact" id="viralFilters"><button class="is-active" data-viral-filter="all">全部</button><button data-viral-filter="xhs">小红书</button><button data-viral-filter="douyin">抖音</button><button data-viral-filter="newcomer">新人</button><button data-viral-filter="communication">沟通</button><button data-viral-filter="emotion">情绪</button></div>
+        <div class="viral-breakdown-list" id="viralBreakdownList">
+          <article class="viral-breakdown-card" data-viral-tags="douyin communication emotion">
+            <div class="viral-card-top"><span>抖音公开样本</span><em>职场生存</em></div><h2>“职场真正厉害的人，从不跟这三种人纠缠”</h2>
+            <div class="viral-grid"><div><b>为什么能停留</b><p>“真正厉害”制造身份向往，“三种人”形成明确的信息缺口。</p></div><div><b>核心结构</b><p>身份判断 → 三类具体对象 → 应对动作 → 清醒式收束。</p></div></div>
+            <div class="rewrite-angle"><span>适合李老师的改编角度</span><p>刚入职场的老实人，别急着远离谁，先学会识别三种消耗型协作。</p></div>
+            <div class="viral-actions"><button data-add-idea="识别三种消耗型协作">＋ 加入选题</button><button data-save-idea="职场真正厉害的人结构">☆ 保存拆解</button></div>
+          </article>
+          <article class="viral-breakdown-card" data-viral-tags="xhs douyin newcomer">
+            <div class="viral-card-top"><span>账号实战结构</span><em>新人避坑</em></div><h2>“刚入职场的老实人，试用期一定要学会工作留痕”</h2>
+            <div class="viral-grid"><div><b>为什么能代入</b><p>身份词精准圈定“老实人、职场小白”，痛点来自真实协作场景。</p></div><div><b>核心结构</b><p>风险场景 → 重新定义留痕 → 三个动作 → 安全边界提醒。</p></div></div>
+            <div class="rewrite-angle"><span>可继续发展的系列</span><p>试用期生存指南：工作留痕、第一次汇报、犯错后的补救、转正述职。</p></div>
+            <div class="viral-actions"><button data-add-idea="试用期生存指南系列">＋ 加入选题</button><button data-save-idea="工作留痕结构">☆ 保存拆解</button></div>
+          </article>
+          <article class="viral-breakdown-card" data-viral-tags="xhs douyin newcomer communication">
+            <div class="viral-card-top"><span>高收藏结构</span><em>向上管理</em></div><h2>“领导临时交代任务，别只会回复收到”</h2>
+            <div class="viral-grid"><div><b>为什么值得收藏</b><p>一个高频场景配一句可以直接复制的话术，行动成本很低。</p></div><div><b>核心结构</b><p>错误示范 → 风险解释 → 正确话术 → 使用边界。</p></div></div>
+            <div class="rewrite-angle"><span>推荐口播开场</span><p>职场小白最容易吃亏的，不是不会做，而是只回了两个字：收到。</p></div>
+            <div class="viral-actions"><button data-add-idea="领导交代任务别只回复收到">＋ 加入选题</button><button data-save-idea="收到话术结构">☆ 保存拆解</button></div>
+          </article>
+        </div>
+        <p class="source-disclaimer">公开页面受平台登录限制；以上为结构样例和账号已有内容拆解，不代表实时热度或平台推荐。</p>
+      </section>
+
+      <section class="page" id="page-review" data-page="review">
+        <span class="scroll-anchor" id="reviewDashboard"></span>
+        <div class="page-intro review-intro">
+          <p class="eyebrow">CONTENT REVIEW</p>
+          <h2>数据复盘</h2>
+          <p>不追逐一次爆款，找到可以重复的增长规律。</p>
+        </div>
+
+        <div class="review-toolbar">
+          <div class="review-tabs" id="reviewTabs">
+            <button class="is-active" data-review-filter="all">全部</button>
+            <button data-review-filter="xhs">小红书</button>
+            <button data-review-filter="douyin">抖音</button>
+          </div>
+          <button class="review-add" id="openReviewEntry">＋ 数据</button>
+        </div>
+        <p class="review-data-mode" id="reviewDataMode">当前展示演示样本；录入首条真实数据后会自动清空演示数据。</p>
+
+        <article class="review-hero">
+          <div class="review-hero-top"><span class="review-ai-dot"></span><b>自动复盘结论</b><span id="reviewSample">基于 5 条内容</span></div>
+          <h2 id="reviewVerdict">开场留存是本周最值得优化的环节</h2>
+          <p id="reviewReason">系统会和你自己的历史内容比较，不套用网络上的统一爆款标准。</p>
+          <div class="review-hero-footer"><span>可信度 <b id="reviewConfidence">样本可用</b></span><span>更新于 <b>刚刚</b></span></div>
+        </article>
+
+        <div class="review-metrics">
+          <article><span>内容样本</span><b id="reviewCount">5</b><small>条</small></article>
+          <article><span>平均互动率</span><b id="reviewEngagement">6.8</b><small>%</small></article>
+          <article><span>平均涨粉率</span><b id="reviewFollow">0.7</b><small>%</small></article>
+        </div>
+
+        <article class="review-funnel-card">
+          <div class="review-card-head"><div><p class="section-index">FUNNEL</p><h3>内容转化漏斗</h3></div><span id="reviewPlatformLabel">全平台</span></div>
+          <div class="review-funnel">
+            <div><span>曝光</span><i><b id="funnelExposure" style="width:100%"></b></i><strong id="funnelExposureValue">100%</strong></div>
+            <div><span>阅读/播放</span><i><b id="funnelView" style="width:62%"></b></i><strong id="funnelViewValue">62%</strong></div>
+            <div><span>深度互动</span><i><b id="funnelEngage" style="width:36%"></b></i><strong id="funnelEngageValue">6.8%</strong></div>
+            <div><span>转化关注</span><i><b id="funnelFollow" style="width:14%"></b></i><strong id="funnelFollowValue">0.7%</strong></div>
+          </div>
+        </article>
+
+        <div class="review-split">
+          <article class="review-insight good"><span>表现最好</span><h3 id="reviewBestTitle">职场小白要学会工作留痕</h3><p id="reviewBestReason">收藏价值突出，可继续发展为系列。</p></article>
+          <article class="review-insight weak"><span>主要波动</span><h3 id="reviewWeakPoint">前 5 秒留存</h3><p id="reviewWeakReason">开场表现差异较大，需要单独测试。</p></article>
+        </div>
+
+        <article class="review-experiment">
+          <p class="card-kicker">NEXT EXPERIMENT · 只改一个变量</p>
+          <h3 id="reviewExperiment">下一条只测试“先说结果”的开场</h3>
+          <p id="reviewExperimentDetail">保持选题、时长和剪辑风格不变，用结果前置替换原来的背景铺垫。</p>
+          <span>下一次复盘后再决定是否保留</span>
+        </article>
+
+        <div class="section-heading compact-heading"><div><p class="section-index">POSTS</p><h2>最近内容</h2></div><a class="review-template" href="review-template.csv" download>CSV 模板</a></div>
+        <div class="review-post-list" id="reviewPostList"></div>
+        <label class="review-import">批量导入 CSV<input type="file" id="reviewCsv" accept=".csv,text/csv" hidden></label>
+        <p class="review-import-status" id="reviewImportStatus" aria-live="polite"></p>
+      </section>
+
+      <section class="page" id="page-finance" data-page="finance">
+        <span class="scroll-anchor" id="financeOverview"></span>
+        <div class="page-intro">
+          <p class="eyebrow">MONEY LOG</p>
+          <h2>记账与资产</h2>
+          <p>把自己的收支理清楚，知道钱花在了哪里。</p>
+        </div>
+        <article class="balance-card">
+          <div><span>本月可支配</span><h2>¥ 8,640.00</h2><p>较上月结余 <b>+12.4%</b></p></div>
+          <button id="openTransaction">＋ 记一笔</button>
+        </article>
+        <div class="spend-card">
+          <div class="section-heading inline"><div><p class="section-index">JUL</p><h2>本月支出</h2></div><b>¥ 3,286</b></div>
+          <div class="bars" aria-label="近七日支出图">
+            <i style="--h:35%"><span>六</span></i><i style="--h:52%"><span>日</span></i><i style="--h:30%"><span>一</span></i><i style="--h:76%"><span>二</span></i><i style="--h:45%"><span>三</span></i><i style="--h:88%"><span>四</span></i><i class="today" style="--h:60%"><span>五</span></i>
+          </div>
+          <div class="spend-legend"><span><i></i>餐饮 ¥1,240</span><span><i></i>生活 ¥986</span><span><i></i>其他 ¥1,060</span></div>
+        </div>
+        <div class="section-heading compact-heading"><div><p class="section-index">LOG</p><h2>最近记录</h2></div></div>
+        <div class="transaction-list" id="transactionList"></div>
+      </section>
+
+      <section class="page" id="page-notes" data-page="notes">
+        <span class="scroll-anchor" id="journalSection"></span>
+        <div class="page-intro">
+          <p class="eyebrow">CAPTURE & REFLECT</p>
+          <h2>日记与备忘</h2>
+          <p>记下重要的，不让大脑一直替你保管。</p>
+        </div>
+        <article class="journal-card">
+          <div class="journal-date"><b id="journalDay">24</b><span id="journalMonthWeek">七月<br>星期五</span></div>
+          <h3>此刻感觉怎么样？</h3>
+          <div class="mood-row" id="moodRow">
+            <button data-mood="充满能量" aria-label="充满能量">⚡</button><button data-mood="状态不错" aria-label="状态不错">🙂</button><button data-mood="很平静" aria-label="很平静">🌿</button><button data-mood="有点疲惫" aria-label="有点疲惫">🌧</button>
+          </div>
+          <textarea id="journalText" placeholder="今天发生了什么？有什么值得记住……" rows="7"></textarea>
+          <button class="primary-button" id="saveJournal">保存今天的日记</button>
+          <p class="save-status" id="saveStatus" aria-live="polite"></p>
+        </article>
+        <div class="section-heading compact-heading"><div><p class="section-index">JOURNAL HISTORY</p><h2>往日日记</h2></div><span class="history-count" id="journalHistoryCount">0 篇</span></div>
+        <div class="record-history-list" id="journalHistoryList"></div>
+        <div class="section-heading compact-heading"><div><p class="section-index">MEMO</p><h2>灵光一现</h2></div><button class="text-button" id="addMemo">＋ 新建</button></div>
+        <div class="memo-list" id="memoList">
+          <article><i></i><div><b>周末拍 3 条职场沟通系列</b><span>内容计划 · 09:40</span></div><button aria-label="删除备忘">×</button></article>
+          <article><i></i><div><b>论文图 4 需要重做图例</b><span>论文 · 昨天</span></div><button aria-label="删除备忘">×</button></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-settings" data-page="settings">
+        <span class="scroll-anchor" id="settingsDashboard"></span>
+        <div class="page-intro settings-intro">
+          <p class="eyebrow">MY WORKBENCH</p>
+          <h2>设置</h2>
+          <p>只保留真正会用到的选项，让工作台更顺手。</p>
+        </div>
+
+        <article class="settings-profile">
+          <img src="icon-192.png" alt=""><div><b>wmq的工作台</b><p>日常管理 · 内容创作 · 数据复盘</p></div><em>v19</em>
+        </article>
+
+        <div class="settings-section-title"><span>显示</span><small>适合手机阅读</small></div>
+        <article class="settings-card">
+          <div class="setting-copy"><span class="setting-mini-icon icon-list"><svg><use href="#icon-list"></use></svg></span><div><b>阅读字号</b><p>当前字号已经过手机适配，也可以再放大一级。</p></div></div>
+          <div class="font-options" id="fontOptions"><button class="is-active" data-font-size="comfortable">舒适</button><button data-font-size="large">更大</button></div>
+        </article>
+
+        <div class="settings-section-title"><span>手机推送</span><small>每天 10:00</small></div>
+        <article class="settings-card push-settings-card">
+          <div class="setting-copy"><span class="setting-mini-icon push-bell" aria-hidden="true">♪</span><div><b>热点后台通知</b><p>开启后，即使工作台没有打开，手机也能收到今日热点提醒。</p></div></div>
+          <div class="push-actions">
+            <button class="push-primary" id="enablePushNotifications">开启手机推送</button>
+            <button id="sendTestPush" hidden>发送测试通知</button>
+            <button id="disablePushNotifications" hidden>关闭推送</button>
+          </div>
+          <p class="push-status" id="pushStatus" aria-live="polite">正在检查手机通知状态…</p>
+          <p class="push-tip">iPhone 需 iOS 16.4 以上，并先用 Safari 将工作台“添加到主屏幕”。只有通过原稿链接与热度数据校验的内容才会推送；当天没有合格热稿时自动跳过。</p>
+        </article>
+
+        <div class="settings-section-title"><span>热点与选题</span><small>打开时检查</small></div>
+        <article class="settings-card settings-stack">
+          <label class="setting-row" for="trendReminderToggle"><div><b>App 内提醒</b><p>打开工作台时，也提示你检查当天热点。</p></div><span class="toggle"><input type="checkbox" id="trendReminderToggle"><i></i></span></label>
+          <label class="setting-row" for="trendReminderTime"><div><b>App 内提醒时间</b><p>只影响打开工作台后的页面提示。</p></div><input class="time-input" type="time" id="trendReminderTime" value="10:00"></label>
+          <label class="setting-row" for="showBenchmarkLinks"><div><b>显示对标链接</b><p>有真实对标内容时，在选题卡片中直接显示可点击链接。</p></div><span class="toggle"><input type="checkbox" id="showBenchmarkLinks" checked><i></i></span></label>
+          <p class="setting-status" id="reminderStatus" aria-live="polite"></p>
+        </article>
+
+        <div class="settings-section-title"><span>数据与隐私</span><small>只保存在当前设备</small></div>
+        <article class="settings-card settings-stack">
+          <div class="setting-row"><div><b>本机数据</b><p>日常记录、复盘、记账和日记不会自动同步到其他手机。</p></div><span class="privacy-badge">本机</span></div>
+          <button class="settings-action" id="exportBackup"><svg><use href="#icon-notebook"></use></svg><span><b>导出数据备份</b><small>下载一个可保存的 JSON 文件</small></span><i>›</i></button>
+          <p class="setting-status" id="backupStatus" aria-live="polite"></p>
+        </article>
+
+        <p class="settings-footnote">热点链接只展示公开且可核验的来源；平台页面不可访问时会明确标注，不会生成假链接。</p>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="主导航">
+      <button class="is-active" data-nav="overview"><span><svg><use href="#icon-home"></use></svg></span><b>总览</b></button>
+      <button data-nav="fitness"><span><svg><use href="#icon-fitness"></use></svg></span><b>健身</b></button>
+      <button class="nav-add" data-nav="inspiration" aria-label="进入选题灵感"><span><svg><use href="#icon-spark"></use></svg></span></button>
+      <button data-nav="review"><span><svg><use href="#icon-chart"></use></svg></span><b>复盘</b></button>
+      <button data-nav="notes"><span><svg><use href="#icon-notebook"></use></svg></span><b>记录</b></button>
+    </nav>
+  </div>
+
+  <div class="app-toast" id="appToast" role="status" aria-live="polite"></div>
+
+  <dialog id="transactionDialog">
+    <form method="dialog" id="transactionForm">
+      <div class="dialog-head"><div><p class="eyebrow">QUICK LOG</p><h2>记一笔</h2></div><button type="button" data-close-dialog="transactionDialog" aria-label="关闭记账窗口">×</button></div>
+      <label>金额<input id="transactionAmount" type="number" min="0.01" step="0.01" required placeholder="0.00"></label>
+      <div class="form-row"><label>分类<select id="transactionCategory"><option>餐饮</option><option>交通</option><option>购物</option><option>学习</option><option>其他</option></select></label><label>备注<input id="transactionNote" maxlength="20" placeholder="可选"></label></div>
+      <button class="primary-button" value="default" type="submit">保存记录</button>
+    </form>
+  </dialog>
+
+  <dialog id="memoDialog">
+    <form method="dialog" id="memoForm">
+      <div class="dialog-head"><div><p class="eyebrow">QUICK MEMO</p><h2>新建备忘</h2></div><button type="button" data-close-dialog="memoDialog" aria-label="关闭备忘窗口">×</button></div>
+      <label>想记下什么？<textarea id="memoText" rows="5" maxlength="200" required placeholder="例如：周末拍 3 条职场沟通系列"></textarea></label>
+      <button class="primary-button" value="default" type="submit">保存备忘</button>
+    </form>
+  </dialog>
+
+  <dialog id="journalHistoryDialog">
+    <form method="dialog">
+      <div class="dialog-head"><div><p class="eyebrow">PAST JOURNAL</p><h2 id="journalHistoryTitle">往日日记</h2></div><button type="button" data-close-dialog="journalHistoryDialog" aria-label="关闭日记详情">×</button></div>
+      <div class="journal-history-detail"><span id="journalHistoryMood"></span><p id="journalHistoryText"></p><small id="journalHistorySavedAt"></small></div>
+      <button class="danger-button journal-delete-button" id="deleteJournalEntry" type="button">删除这篇日记</button>
+    </form>
+  </dialog>
+
+  <dialog id="reviewDialog" class="review-dialog">
+    <form method="dialog" id="reviewForm">
+      <div class="dialog-head"><div><p class="eyebrow">CONTENT DATA</p><h2>录入一条内容</h2></div><button type="button" data-close-dialog="reviewDialog" aria-label="关闭数据录入窗口">×</button></div>
+      <div class="form-row"><label>平台<select id="reviewPlatform" required><option value="xhs">小红书</option><option value="douyin">抖音</option></select></label><label>发布日期<input id="reviewDate" type="date" required></label></div>
+      <label>内容标题<input id="reviewTitle" required maxlength="60" placeholder="例如：职场小白如何做好工作留痕"></label>
+      <p class="review-form-section">基础流量</p>
+      <div class="review-form-grid"><label>曝光量<input id="reviewImpressions" type="number" min="0" required placeholder="0"></label><label>阅读/播放<input id="reviewViews" type="number" min="0" required placeholder="0"></label><label>完播率 %<input id="reviewCompletion" type="number" min="0" max="100" step="0.1" placeholder="0"></label><label>5秒留存 %<input id="reviewHook" type="number" min="0" max="100" step="0.1" placeholder="抖音可填"></label></div>
+      <p class="review-form-section">互动与转化</p>
+      <div class="review-form-grid"><label>点赞<input id="reviewLikes" type="number" min="0" value="0"></label><label>评论<input id="reviewComments" type="number" min="0" value="0"></label><label>收藏<input id="reviewSaves" type="number" min="0" value="0"></label><label>转发<input id="reviewShares" type="number" min="0" value="0"></label><label>新增关注<input id="reviewFollows" type="number" min="0" value="0"></label><label>平均播放秒数<input id="reviewAvgWatch" type="number" min="0" step="0.1" placeholder="视频可填"></label></div>
+      <p class="review-form-note">没有的数据可以留空；系统只使用你实际提供的字段。</p>
+      <button class="primary-button" value="default" type="submit">保存并自动复盘</button>
+    </form>
+  </dialog>
+
+  <dialog id="confirmDialog" class="confirm-dialog" aria-labelledby="confirmTitle">
+    <div class="confirm-dialog-card">
+      <span class="confirm-dialog-icon" aria-hidden="true">!</span>
+      <h2 id="confirmTitle">确认删除？</h2>
+      <p id="confirmMessage">删除后无法恢复。</p>
+      <div class="confirm-dialog-actions"><button id="confirmCancel" type="button">取消</button><button id="confirmAccept" class="danger-button" type="button">确认删除</button></div>
+    </div>
+  </dialog>
+
+  <script src="app.js?v=20"></script>
+</body>
+</html>

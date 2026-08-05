@@ -1,0 +1,54 @@
+/* v10 手机可读性层：保留原布局，只放大正文、说明、按钮和表单。 */
+body{font-size:14px;line-height:1.55;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.eyebrow,.card-kicker,.section-index{font-size:11px}
+.page-intro>p:last-child,.module-intro>p:last-child{font-size:13px;line-height:1.65}
+
+/* 顶栏与侧边栏 */
+.topbar h1{font-size:25px}.topbar h1 span{font-size:19px}
+.drawer-brand h2{font-size:17px}.drawer-brand p,.drawer-footer small{font-size:12px}
+.drawer-label{font-size:11px}.drawer-item b{font-size:14px}.drawer-item small{font-size:12px;line-height:1.4}
+.drawer-footer b{font-size:13px}
+
+/* 总览 */
+.overview-intro>p:last-child{font-size:13px}
+.overview-hero-top span,.overview-hero>p,.overview-progress span{font-size:12px}
+.overview-hero-top b{font-size:14px}.overview-section-head button{font-size:13px}
+.overview-daily-grid b{font-size:14px}.overview-daily-grid small{font-size:12px}
+.overview-focus-card small,.overview-focus-card p{font-size:12px;line-height:1.45}
+.overview-focus-card h3{font-size:15px}.overview-shortcuts b{font-size:13px}
+
+/* 日常 List 与健身 */
+.calendar-head p,.calendar-week,.calendar-legend{font-size:11px}.calendar-day{font-size:13px}
+.daily-record-title h3{font-size:15px}.daily-record-title p{font-size:12px}
+.meal-inputs label,.fitness-log-row label span{font-size:12px}
+.daily-record-card textarea,.daily-record-card input[type=text],.meal-inputs input,.fitness-log-row>input,.fitness-log-row label input,
+.dialog-card input,.dialog-card select,.dialog-card textarea{font-size:16px}
+.inline-module-link,.daily-save-button{font-size:14px}.daily-save-status{font-size:12px}
+.route-head p,.route-focus span,.fitness-safety p,.workout-time,.workout-list small,.workout-progress-text,.fitness-stage em,.fitness-stage p,.fitness-stage strong{font-size:12px}
+.fitness-route-card>p{font-size:13px}.route-progress span{font-size:12px}.route-focus b,.fitness-safety b,.workout-list b,.fitness-stage>div b{font-size:14px}.workout-list em{font-size:12px}
+
+/* 选题灵感与爆款拆解 */
+.content-source-card b{font-size:14px}.content-source-card small{font-size:12px;line-height:1.45}.content-source-card button{font-size:12px;min-width:72px}
+.module-filters button,.viral-mode-tabs button{font-size:12px}
+.inspiration-tag,.inspiration-card>p,.inspiration-judgment p,.inspiration-keywords span,.inspiration-actions button,.creation-library-recent{font-size:12px}
+.inspiration-judgment span{font-size:11px}.inspiration-card h3{font-size:17px}
+.trend-evidence,.trend-conclusion,.trend-selection-note,.trend-fit-gate p,.trend-hook p,.trend-why-now,.platform-difference-grid p,.trend-debrief li{font-size:12px;line-height:1.55}.trend-source-link{font-size:13px}
+.viral-principle>span,.viral-principle b,.viral-grid b{font-size:13px}.viral-principle p,.viral-card-top span,.viral-card-top em,.viral-grid p,.rewrite-angle span,.rewrite-angle p,.viral-actions button,.source-disclaimer{font-size:12px}
+
+/* 数据复盘 */
+.review-tabs button,.review-add,.review-data-mode,.review-hero-top,.review-hero>p,.review-hero-footer,.review-metrics span,.review-metrics small,.review-card-head>span,.review-funnel span,.review-insight>span,.review-insight p,.review-experiment>p:nth-child(3),.review-experiment>span,.review-template,.review-post-platform,.review-post-date,.review-post-metrics span,.review-import,.review-import-status,.review-form-section,.review-form-note{font-size:12px}
+.review-post h3{font-size:14px}.review-post-metrics b{font-size:12px}
+
+/* 财务、日记、弹窗与底部导航中常见的小字 */
+.metric-card p,.metric-card small,.task-time,.task p,.transaction small,.finance-summary span,.memo-list span,.journal-date span,.journal-date small,.save-status,.bottom-nav b,.dialog-card label{font-size:12px}
+.task h3,.transaction b,.memo-list b{font-size:14px}
+.balance-card span,.balance-card p,.balance-card button,.bars span,.spend-legend{font-size:12px}
+.journal-card textarea,.primary-button{font-size:16px}
+button{min-height:36px}
+
+@media(max-width:370px){
+  .app-shell{padding-left:16px;padding-right:16px}
+  .overview-daily-grid button{padding-left:8px;padding-right:8px}
+  .overview-focus-card{gap:9px}
+  .content-source-card{align-items:flex-start;gap:9px}
+}

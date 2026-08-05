@@ -1,0 +1,18 @@
+{
+  "name":"wmq的工作台",
+  "short_name":"wmq工作台",
+  "description":"日常记录、健身训练、自媒体运营、财务与备忘中心",
+  "id":"./",
+  "start_url":"./index.html?v=20&page=overview",
+  "scope":"./",
+  "display":"standalone",
+  "orientation":"portrait",
+  "background_color":"#f4f1ea",
+  "theme_color":"#225c45",
+  "icons":[
+    {"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"},
+    {"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"maskable"},
+    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}
+  ]
+}

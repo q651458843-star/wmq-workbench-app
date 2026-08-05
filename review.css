@@ -1,0 +1,67 @@
+.review-intro{padding-bottom:16px}
+.review-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}
+.review-tabs{display:flex;gap:5px;background:#e9e5dc;padding:4px;border-radius:15px}
+.review-tabs button{border:0;background:transparent;border-radius:11px;padding:8px 11px;font-size:9px;color:var(--muted)}
+.review-tabs button.is-active{background:var(--card);color:var(--ink);font-weight:700;box-shadow:0 3px 10px rgba(30,40,34,.08)}
+.review-add{border:0;background:var(--green);color:#fff;border-radius:13px;padding:10px 12px;font-size:10px;font-weight:700}
+.review-hero{background:var(--green);color:#fff;border-radius:26px;padding:21px 21px 17px;box-shadow:0 16px 36px rgba(34,92,69,.18);overflow:hidden;position:relative}
+.review-hero:after{content:"";position:absolute;width:150px;height:150px;border:26px solid rgba(255,255,255,.04);border-radius:50%;right:-88px;top:-65px}
+.review-hero-top{display:flex;align-items:center;gap:7px;font-size:9px;color:#c1d5c8;position:relative;z-index:1}
+.review-hero-top b{color:#fff}
+.review-hero-top span:last-child{margin-left:auto}
+.review-ai-dot{width:7px;height:7px;border-radius:50%;background:#e9bb63;box-shadow:0 0 0 4px rgba(233,187,99,.13)}
+.review-hero h2{font:600 20px/1.45 Georgia,"Songti SC",serif;margin:18px 0 9px;max-width:91%;position:relative;z-index:1}
+.review-hero>p{font-size:10px;line-height:1.65;color:#c4d6ca;margin:0;position:relative;z-index:1}
+.review-hero-footer{display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.14);padding-top:13px;margin-top:16px;font-size:8px;color:#b7ccbf}
+.review-hero-footer b{color:#fff}
+.review-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:11px}
+.review-metrics article{background:var(--card);border-radius:17px;padding:14px 12px;box-shadow:0 6px 20px rgba(31,43,36,.05)}
+.review-metrics span{display:block;font-size:8px;color:var(--muted);margin-bottom:7px}
+.review-metrics b{font:600 20px Georgia}
+.review-metrics small{font-size:8px;color:var(--muted);margin-left:2px}
+.review-funnel-card{background:var(--card);border-radius:22px;padding:18px;margin-top:13px;box-shadow:var(--shadow)}
+.review-card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}
+.review-card-head>div{display:flex;gap:7px;align-items:baseline}
+.review-card-head h3{font:600 16px Georgia,"Songti SC",serif;margin:0}
+.review-card-head>span{font-size:8px;color:var(--green);background:var(--green-soft);border-radius:10px;padding:5px 7px;font-weight:700}
+.review-funnel{display:grid;gap:12px}
+.review-funnel>div{display:grid;grid-template-columns:52px 1fr 42px;align-items:center;gap:8px}
+.review-funnel span{font-size:8px;color:var(--muted)}
+.review-funnel i{height:7px;background:#e8e5dd;border-radius:8px;overflow:hidden}
+.review-funnel i b{display:block;height:100%;border-radius:8px;background:var(--green);transition:width .35s ease}
+.review-funnel>div:nth-child(3) i b{background:#d09a4f}
+.review-funnel>div:nth-child(4) i b{background:var(--orange)}
+.review-funnel strong{text-align:right;font:600 10px Georgia}
+.review-split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}
+.review-insight{border-radius:20px;padding:16px;min-height:142px}
+.review-insight.good{background:#dfe9e1}.review-insight.weak{background:#f1e4dc}
+.review-insight>span{font-size:8px;font-weight:700;color:var(--green)}
+.review-insight.weak>span{color:#a34b26}
+.review-insight h3{font:600 14px/1.45 Georgia,"Songti SC",serif;margin:12px 0 7px}
+.review-insight p{font-size:8px;line-height:1.55;color:var(--muted);margin:0}
+.review-experiment{background:#e7c268;border-radius:23px;padding:20px;margin-top:13px;box-shadow:0 12px 28px rgba(122,91,27,.12)}
+.review-experiment .card-kicker{color:#6c5928}
+.review-experiment h3{font:600 17px/1.45 Georgia,"Songti SC",serif;margin:10px 0 7px}
+.review-experiment>p:nth-child(3){font-size:9px;line-height:1.65;color:#5f512f;margin:0}
+.review-experiment>span{display:block;border-top:1px solid rgba(70,59,34,.16);padding-top:11px;margin-top:13px;font-size:8px;color:#67572e}
+.review-template{font-size:9px;color:var(--green);text-decoration:none;font-weight:700}
+.review-post-list{display:grid;gap:9px}
+.review-post{background:var(--card);border-radius:18px;padding:14px 15px;box-shadow:0 5px 18px rgba(31,43,36,.045)}
+.review-post-top{display:flex;justify-content:space-between;align-items:center}
+.review-post-platform{font-size:8px;border-radius:9px;padding:4px 6px;background:var(--orange-soft);color:#9f4824;font-weight:700}
+.review-post-platform.douyin{background:#e2e7eb;color:#455e73}
+.review-post-date{font-size:8px;color:var(--muted)}
+.review-post h3{font-size:11px;line-height:1.5;margin:9px 0}
+.review-post-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding-top:9px;border-top:1px solid var(--line)}
+.review-post-metrics span{font-size:7px;color:var(--muted)}
+.review-post-metrics b{display:block;font:600 10px Georgia;color:var(--ink);margin-top:3px}
+.review-import{display:block;text-align:center;border:1px dashed #b9bdb8;border-radius:16px;padding:12px;margin-top:10px;color:var(--green);font-size:9px;font-weight:700;cursor:pointer}
+.review-import-status{text-align:center;min-height:14px;font-size:8px;color:var(--green);margin:7px 0}
+.review-dialog{max-height:88vh;overflow:auto}
+.review-form-section{font-size:9px;font-weight:700;color:var(--green);margin:18px 0 9px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+.review-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
+.review-form-note{font-size:8px;color:var(--muted);line-height:1.5;margin:2px 0 8px}
+@media(max-width:350px){.review-tabs button{padding:8px}.review-split{grid-template-columns:1fr}.review-post-metrics{grid-template-columns:repeat(2,1fr);gap:9px}}
+
+/* v17：真实复盘数据可单条删除，演示数据保持只读。 */
+.review-post-actions{display:flex;align-items:center;gap:8px}.review-post-actions .item-delete-button{width:40px;height:36px}.list-empty-state{background:rgba(255,255,255,.56);border:1px dashed #cfd1cb;border-radius:16px;padding:18px;text-align:center;color:var(--muted);font-size:13px;line-height:1.55;margin:0}
