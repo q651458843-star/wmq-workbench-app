@@ -10,15 +10,15 @@
   <meta name="description" content="wmq的工作台——日常记录、健身训练、自媒体运营、记账、日记与备忘">
   <title>wmq的工作台</title>
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=20">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20">
-  <link rel="stylesheet" href="styles.css?v=20">
-  <link rel="stylesheet" href="drawer.css?v=20">
-  <link rel="stylesheet" href="review.css?v=20">
-  <link rel="stylesheet" href="modules.css?v=20">
-  <link rel="stylesheet" href="overview.css?v=20">
-  <link rel="stylesheet" href="readability.css?v=20">
-  <link rel="stylesheet" href="settings.css?v=20">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png?v=21">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=21">
+  <link rel="stylesheet" href="styles.css?v=21">
+  <link rel="stylesheet" href="drawer.css?v=21">
+  <link rel="stylesheet" href="review.css?v=21">
+  <link rel="stylesheet" href="modules.css?v=21">
+  <link rel="stylesheet" href="overview.css?v=21">
+  <link rel="stylesheet" href="readability.css?v=21">
+  <link rel="stylesheet" href="settings.css?v=21">
 </head>
 <body>
   <svg class="icon-sprite" aria-hidden="true">
@@ -314,6 +314,10 @@
           </div>
           <button class="review-add" id="openReviewEntry">＋ 数据</button>
         </div>
+        <article class="review-cloud-bar" id="reviewCloudBar">
+          <div class="review-cloud-state"><span class="review-cloud-dot" id="reviewCloudDot"></span><div><b id="reviewCloudTitle">当前为本机模式</b><small id="reviewCloudDetail">连接团队云端后，一人更新，其他成员也能看到</small></div></div>
+          <div class="review-cloud-actions"><button id="syncReviewCloud" type="button" hidden>立即同步</button><button id="openReviewCloud" type="button">连接云端</button></div>
+        </article>
         <p class="review-data-mode" id="reviewDataMode">当前展示演示样本；录入首条真实数据后会自动清空演示数据。</p>
 
         <article class="review-hero">
@@ -349,6 +353,12 @@
           <h3 id="reviewExperiment">下一条只测试“先说结果”的开场</h3>
           <p id="reviewExperimentDetail">保持选题、时长和剪辑风格不变，用结果前置替换原来的背景铺垫。</p>
           <span>下一次复盘后再决定是否保留</span>
+        </article>
+
+        <article class="review-suggestions-card">
+          <div class="review-card-head"><div><p class="section-index">NEXT CONTENT</p><h3>后续内容建议</h3></div><span>自动生成 3 条</span></div>
+          <p class="review-suggestions-lead">系统会结合最佳内容、最弱指标和评论洞察，给出下一批可以直接执行的方向。</p>
+          <div class="review-suggestion-list" id="reviewSuggestionList"></div>
         </article>
 
         <div class="section-heading compact-heading"><div><p class="section-index">POSTS</p><h2>最近内容</h2></div><a class="review-template" href="review-template.csv" download>CSV 模板</a></div>
@@ -443,9 +453,10 @@
           <p class="setting-status" id="reminderStatus" aria-live="polite"></p>
         </article>
 
-        <div class="settings-section-title"><span>数据与隐私</span><small>只保存在当前设备</small></div>
+        <div class="settings-section-title"><span>数据与隐私</span><small>复盘可团队共享</small></div>
         <article class="settings-card settings-stack">
-          <div class="setting-row"><div><b>本机数据</b><p>日常记录、复盘、记账和日记不会自动同步到其他手机。</p></div><span class="privacy-badge">本机</span></div>
+          <div class="setting-row"><div><b>个人数据</b><p>日记、记账、日常和训练继续只保存在当前设备，不上传团队云端。</p></div><span class="privacy-badge">私密</span></div>
+          <button class="settings-action" id="settingsReviewCloud" type="button"><svg><use href="#icon-chart"></use></svg><span><b>团队复盘云端</b><small id="settingsReviewCloudState">尚未连接 · 复盘数据仍在本机</small></span><i>›</i></button>
           <button class="settings-action" id="exportBackup"><svg><use href="#icon-notebook"></use></svg><span><b>导出数据备份</b><small>下载一个可保存的 JSON 文件</small></span><i>›</i></button>
           <p class="setting-status" id="backupStatus" aria-live="polite"></p>
         </article>
@@ -495,12 +506,30 @@
       <div class="dialog-head"><div><p class="eyebrow">CONTENT DATA</p><h2>录入一条内容</h2></div><button type="button" data-close-dialog="reviewDialog" aria-label="关闭数据录入窗口">×</button></div>
       <div class="form-row"><label>平台<select id="reviewPlatform" required><option value="xhs">小红书</option><option value="douyin">抖音</option></select></label><label>发布日期<input id="reviewDate" type="date" required></label></div>
       <label>内容标题<input id="reviewTitle" required maxlength="60" placeholder="例如：职场小白如何做好工作留痕"></label>
+      <div class="form-row"><label>来源选题<input id="reviewSourceTopic" maxlength="80" placeholder="例如：职场新人如何留痕"></label><label>呈现形式<select id="reviewContentFormat"><option value="口播">口播</option><option value="图文">图文</option><option value="情景演绎">情景演绎</option><option value="清单卡片">清单卡片</option><option value="其他">其他</option></select></label></div>
+      <label>本条实验变量<input id="reviewExperimentVariable" maxlength="100" placeholder="例如：开头先说结果，其他不变"></label>
       <p class="review-form-section">基础流量</p>
       <div class="review-form-grid"><label>曝光量<input id="reviewImpressions" type="number" min="0" required placeholder="0"></label><label>阅读/播放<input id="reviewViews" type="number" min="0" required placeholder="0"></label><label>完播率 %<input id="reviewCompletion" type="number" min="0" max="100" step="0.1" placeholder="0"></label><label>5秒留存 %<input id="reviewHook" type="number" min="0" max="100" step="0.1" placeholder="抖音可填"></label></div>
       <p class="review-form-section">互动与转化</p>
       <div class="review-form-grid"><label>点赞<input id="reviewLikes" type="number" min="0" value="0"></label><label>评论<input id="reviewComments" type="number" min="0" value="0"></label><label>收藏<input id="reviewSaves" type="number" min="0" value="0"></label><label>转发<input id="reviewShares" type="number" min="0" value="0"></label><label>新增关注<input id="reviewFollows" type="number" min="0" value="0"></label><label>平均播放秒数<input id="reviewAvgWatch" type="number" min="0" step="0.1" placeholder="视频可填"></label></div>
+      <label>评论区洞察<textarea id="reviewCommentInsights" rows="3" maxlength="500" placeholder="例如：很多人追问“领导不回复怎么办”；也有人担心留痕显得不信任"></textarea></label>
       <p class="review-form-note">没有的数据可以留空；系统只使用你实际提供的字段。</p>
       <button class="primary-button" value="default" type="submit">保存并自动复盘</button>
+    </form>
+  </dialog>
+
+  <dialog id="reviewCloudDialog" class="review-cloud-dialog">
+    <form method="dialog" id="reviewCloudForm">
+      <div class="dialog-head"><div><p class="eyebrow">TEAM CLOUD</p><h2>连接团队复盘</h2></div><button type="button" data-close-dialog="reviewCloudDialog" aria-label="关闭团队云端设置">×</button></div>
+      <p class="review-cloud-intro">连接后只同步“数据复盘”。云端项目已预置，通常只需填写昵称和团队密码；日记、记账、日常与训练不会上传。</p>
+      <label>你的昵称<input id="reviewCloudDisplayName" maxlength="20" placeholder="例如：wmq"></label>
+      <label>Supabase 项目网址<input id="reviewCloudUrl" type="url" inputmode="url" autocomplete="off" placeholder="https://xxxx.supabase.co"></label>
+      <label>Anon public key<textarea id="reviewCloudAnonKey" rows="3" autocomplete="off" spellcheck="false" placeholder="以 eyJ 开头的 anon public key"></textarea></label>
+      <div class="form-row"><label>团队工作区<input id="reviewCloudWorkspaceId" autocomplete="off" value="wmq-team"></label><label>团队密码<input id="reviewCloudWorkspaceKey" type="password" autocomplete="new-password" placeholder="仅团队成员知道"></label></div>
+      <p class="review-cloud-security">这里应填写 anon public key，绝不能填写 service_role key。配置仅保存在当前设备。</p>
+      <p class="review-cloud-form-status" id="reviewCloudFormStatus" aria-live="polite"></p>
+      <button class="primary-button" id="saveReviewCloud" value="default" type="submit">保存并测试连接</button>
+      <button class="review-cloud-disconnect" id="disconnectReviewCloud" type="button" hidden>断开当前设备</button>
     </form>
   </dialog>
 
@@ -513,6 +542,7 @@
     </div>
   </dialog>
 
-  <script src="app.js?v=20"></script>
+  <script src="review-cloud.js?v=21"></script>
+  <script src="app.js?v=21"></script>
 </body>
 </html>

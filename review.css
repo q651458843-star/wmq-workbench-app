@@ -4,6 +4,12 @@
 .review-tabs button{border:0;background:transparent;border-radius:11px;padding:8px 11px;font-size:9px;color:var(--muted)}
 .review-tabs button.is-active{background:var(--card);color:var(--ink);font-weight:700;box-shadow:0 3px 10px rgba(30,40,34,.08)}
 .review-add{border:0;background:var(--green);color:#fff;border-radius:13px;padding:10px 12px;font-size:10px;font-weight:700}
+.review-cloud-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,.72);border:1px solid rgba(34,92,69,.12);border-radius:18px;padding:13px 14px;margin-bottom:10px;box-shadow:0 6px 20px rgba(31,43,36,.04)}
+.review-cloud-state{display:flex;align-items:center;gap:10px;min-width:0}.review-cloud-state>div{min-width:0}.review-cloud-state b{display:block;font-size:10px;line-height:1.4}.review-cloud-state small{display:block;font-size:8px;line-height:1.45;color:var(--muted);margin-top:2px}
+.review-cloud-dot{width:9px;height:9px;border-radius:50%;background:#aaa;box-shadow:0 0 0 4px rgba(120,120,120,.1);flex:0 0 auto}.review-cloud-bar.is-connected .review-cloud-dot{background:#3d986e;box-shadow:0 0 0 4px rgba(61,152,110,.12)}.review-cloud-bar.is-syncing .review-cloud-dot{background:#d29a3d;box-shadow:0 0 0 4px rgba(210,154,61,.14);animation:reviewPulse 1s ease-in-out infinite}.review-cloud-bar.is-offline .review-cloud-dot,.review-cloud-bar.is-error .review-cloud-dot{background:#c96b4a;box-shadow:0 0 0 4px rgba(201,107,74,.12)}
+@keyframes reviewPulse{50%{opacity:.45;transform:scale(.82)}}
+.review-cloud-actions{display:flex;gap:6px;flex:0 0 auto}.review-cloud-actions button{border:0;border-radius:11px;padding:8px 9px;font-size:8px;font-weight:700;background:var(--green-soft);color:var(--green)}.review-cloud-actions button:last-child{background:var(--green);color:#fff}
+.review-data-mode{font-size:8px;line-height:1.5;color:var(--muted);margin:0 2px 12px}
 .review-hero{background:var(--green);color:#fff;border-radius:26px;padding:21px 21px 17px;box-shadow:0 16px 36px rgba(34,92,69,.18);overflow:hidden;position:relative}
 .review-hero:after{content:"";position:absolute;width:150px;height:150px;border:26px solid rgba(255,255,255,.04);border-radius:50%;right:-88px;top:-65px}
 .review-hero-top{display:flex;align-items:center;gap:7px;font-size:9px;color:#c1d5c8;position:relative;z-index:1}
@@ -44,6 +50,9 @@
 .review-experiment h3{font:600 17px/1.45 Georgia,"Songti SC",serif;margin:10px 0 7px}
 .review-experiment>p:nth-child(3){font-size:9px;line-height:1.65;color:#5f512f;margin:0}
 .review-experiment>span{display:block;border-top:1px solid rgba(70,59,34,.16);padding-top:11px;margin-top:13px;font-size:8px;color:#67572e}
+.review-suggestions-card{background:var(--card);border-radius:22px;padding:18px;margin-top:13px;box-shadow:var(--shadow)}
+.review-suggestions-lead{font-size:8px;line-height:1.55;color:var(--muted);margin:-7px 0 13px}
+.review-suggestion-list{display:grid;gap:9px}.review-suggestion{display:grid;grid-template-columns:28px 1fr;gap:10px;background:#f3f0e8;border:1px solid rgba(34,92,69,.08);border-radius:16px;padding:12px}.review-suggestion>span{display:grid;place-items:center;width:28px;height:28px;border-radius:10px;background:var(--green);color:#fff;font:700 9px Georgia}.review-suggestion:nth-child(2)>span{background:#d29a4a}.review-suggestion:nth-child(3)>span{background:#c96b4a}.review-suggestion b{display:block;font-size:10px;line-height:1.45}.review-suggestion p{font-size:8px;line-height:1.55;color:var(--muted);margin:4px 0 0}.review-suggestion em{display:inline-block;font-style:normal;font-size:7px;color:var(--green);background:var(--green-soft);border-radius:8px;padding:3px 6px;margin-top:7px}
 .review-template{font-size:9px;color:var(--green);text-decoration:none;font-weight:700}
 .review-post-list{display:grid;gap:9px}
 .review-post{background:var(--card);border-radius:18px;padding:14px 15px;box-shadow:0 5px 18px rgba(31,43,36,.045)}
@@ -52,6 +61,7 @@
 .review-post-platform.douyin{background:#e2e7eb;color:#455e73}
 .review-post-date{font-size:8px;color:var(--muted)}
 .review-post h3{font-size:11px;line-height:1.5;margin:9px 0}
+.review-post-source{font-size:8px;line-height:1.45;color:var(--muted);margin:-4px 0 9px}
 .review-post-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding-top:9px;border-top:1px solid var(--line)}
 .review-post-metrics span{font-size:7px;color:var(--muted)}
 .review-post-metrics b{display:block;font:600 10px Georgia;color:var(--ink);margin-top:3px}
@@ -61,6 +71,8 @@
 .review-form-section{font-size:9px;font-weight:700;color:var(--green);margin:18px 0 9px;padding-bottom:7px;border-bottom:1px solid var(--line)}
 .review-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
 .review-form-note{font-size:8px;color:var(--muted);line-height:1.5;margin:2px 0 8px}
+.review-cloud-dialog{max-height:90vh;overflow:auto}.review-cloud-intro{font-size:10px;line-height:1.6;color:var(--muted);margin:0 0 14px}.review-cloud-security{font-size:8px;line-height:1.55;color:#956041;background:#f6eae2;border-radius:12px;padding:9px 10px}.review-cloud-form-status{min-height:18px;font-size:9px;line-height:1.5;color:var(--green);text-align:center}.review-cloud-form-status.is-error{color:#b14f32}.review-cloud-disconnect{width:100%;border:0;background:transparent;color:#a14f38;font-size:9px;font-weight:700;padding:12px 0 3px}
+@media(max-width:420px){.review-cloud-bar{align-items:flex-start;flex-direction:column}.review-cloud-actions{width:100%}.review-cloud-actions button{flex:1;min-height:36px}.review-cloud-dialog .form-row{grid-template-columns:1fr}.review-suggestion{grid-template-columns:26px 1fr}}
 @media(max-width:350px){.review-tabs button{padding:8px}.review-split{grid-template-columns:1fr}.review-post-metrics{grid-template-columns:repeat(2,1fr);gap:9px}}
 
 /* v17：真实复盘数据可单条删除，演示数据保持只读。 */

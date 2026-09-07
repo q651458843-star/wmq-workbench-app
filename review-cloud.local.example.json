@@ -1,0 +1,7 @@
+{
+  "supabaseUrl": "https://你的项目.supabase.co",
+  "supabaseAnonKey": "你的 anon public key",
+  "workspaceId": "wmq-team",
+  "workspaceKey": "团队密码",
+  "obsidianDir": "/Users/wmq/Documents/wmq mac/自媒体IP/07-数据复盘库"
+}

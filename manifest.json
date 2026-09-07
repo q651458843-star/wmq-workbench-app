@@ -3,7 +3,7 @@
   "short_name":"wmq工作台",
   "description":"日常记录、健身训练、自媒体运营、财务与备忘中心",
   "id":"./",
-  "start_url":"./index.html?v=20&page=overview",
+  "start_url":"./index.html?v=21&page=overview",
   "scope":"./",
   "display":"standalone",
   "orientation":"portrait",
